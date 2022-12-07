@@ -1,4 +1,4 @@
-
+<div>
                         <ul>
                             <li>Bandung Desember 2022</li>
                             <li>By nfs <a href="https://github.com/nifist99">https://github.com/nifist99</a></li>
@@ -27,6 +27,8 @@
                             <li>php artisan storage:link</li>
                             <li>php artisan optimize:clear</li>
                         </ul>
+                        
+</div>
 
 INI ADALAH BASE FRAMEWORK LARAVEL SUDAH DI CONFIG AUTH, MIDELWARE DAN SUDAH ADA HELPER
 
