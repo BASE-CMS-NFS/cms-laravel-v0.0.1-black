@@ -1,0 +1,51 @@
+list pakage
+composer require laravel/passport
+composer require maatwebsite/excel
+composer require barryvdh/laravel-dompdf
+composer require intervention/image
+composer require nesbot/carbon
+composer require guzzlehttp/guzzle
+composer require ixudra/curl
+https://github.com/markrogoyski/math-php
+composer require laravel/socialite
+
+catatan
+semua menggunakan uuid
+
+cara menjalankan
+
+php artisan migrate
+php artisan passport:install
+php artisan passport:install --uuids
+
+untuk mebambahkan migration di database
+php artisan vendor:publish --tag=passport-migrations
+php artisan vendor:publish --tag=laravel-pagination
+
+php artisan db:seed
+php artisan storage:link
+
+php artisan make:migration create_flights_table
+
+https://laravel-code.tips/threads/laravel-clean-code-tactics/
+
+https://github.com/asantibanez/laravel-blade-sortable
+
+JS PLUGIN
+
+git remote set-url origin https://github.com/USERNAME/OTHERREPOSITORY.git
+
+https://fslightbox.com/javascript/download
+
+kita rubah personal_access_tokens agar bisa digunakan di users yg uuid defaultnya string
+
+ Schema::create('personal_access_tokens', function (Blueprint $table) {
+            $table->id();
+            $table->string('tokenable_type')->unique();
+            $table->string('tokenable_id')->unique();
+            $table->string('name');
+            $table->string('token', 64)->unique();
+            $table->text('abilities')->nullable();
+            $table->timestamp('last_used_at')->nullable();
+            $table->timestamps();
+        });
