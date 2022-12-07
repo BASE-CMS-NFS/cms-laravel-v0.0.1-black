@@ -7,6 +7,8 @@
                             <li>Requirement php 7.4 - 8.1</li>
                             <li>Laravel 8/9</li>
                         </ul>
+ </div>
+ <div>
 
                         <p>Cara instalasi di local komputer</p>
                         <ul>
@@ -17,7 +19,8 @@
                             <li>php artisan storage:link</li>
                             <li>php artisan optimize:clear</li>
                         </ul>
-
+ </div>
+ <div>
                         <p>Cara instalasi di vps atau hosting</p>
                         <ul>
                             <li>composer update</li>
