@@ -32,6 +32,21 @@ class SettingsSeeder extends Seeder
                 'value'       => 'demo.com',
                 'description'=> 'silahkan isi domain',
             ],
+            [
+                'name'       => 'phone',
+                'value'       => '088111222334',
+                'description'=> 'silahkan isi phone',
+            ],
+            [
+                'name'       => 'favicon',
+                'value'       => 'favicon',
+                'description'=> 'silahkan isi favicon',
+            ],
+            [
+                'name'       => 'logo',
+                'value'       => 'logo',
+                'description'=> 'silahkan isi logo',
+            ],
             
 
         ]);

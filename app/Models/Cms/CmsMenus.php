@@ -60,9 +60,9 @@ class CmsMenus extends Model
             'type'           => $request->type,
         ]);
 
+        $id = $save->id;
         //melakukan insert default di access menu
         if($request->type == 'full module'){
-            $id = $save->id;
             Nfs::createDeafultValue($id);
         }else{
             Nfs::createDeafultValueOnlyMenu($id);
@@ -98,6 +98,22 @@ class CmsMenus extends Model
         }
 
         return $update;
+
+    }
+
+    public static function setNullAllParentIdWhenDelete($id){
+
+        $check = CmsMenus::where('parent_id',$id)->get();
+
+        if(count($check)!=0){
+            $menu_id = $check->pluck('id');
+
+            CmsMenus::whereIn('id',$menu_id)->update(['parent_id'=>NULL]);
+
+            return true;
+        }else{
+            return false;
+        }
 
     }
 }

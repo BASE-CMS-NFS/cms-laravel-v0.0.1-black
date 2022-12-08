@@ -93,7 +93,7 @@
                             <td>
                               <a href="{{url('admin/menus/show/'.$key->id)}}" class="btn btn-sm btn-primary">detail</a>
                               <a href="{{url('admin/menus/edit/'.$key->id)}}" class="btn btn-sm btn-warning">edit</a>
-                              <a href="{{url('admin/menus/destroy/'.$key->id)}}" class="btn btn-sm btn-danger">delete</a>
+                              <a href="javascript:void(0)" onclick="hapus('{{url('admin/menus/destroy/'.$key->id)}}')" class="btn btn-sm btn-danger">delete</a>
                             </td>
 
                           </tr>
@@ -155,7 +155,7 @@
                                         <div class="col-3">
                                             <a href="{{url('admin/menus/show/'.$sub->id)}}" class="btn btn-sm btn-primary">detail</a>
                                             <a href="{{url('admin/menus/edit/'.$sub->id)}}" class="btn btn-sm btn-warning">edit</a>
-                                            <a href="{{url('admin/menus/destroy/'.$sub->id)}}" class="btn btn-sm btn-danger">delete</a>
+                                            <a href="javascript:void(0)" onclick="hapus('{{url('admin/menus/destroy/'.$sub->id)}}')" class="btn btn-sm btn-danger">delete</a
                                         </div>
                                       </div>
                                     </div>

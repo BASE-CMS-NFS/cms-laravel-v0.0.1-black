@@ -41,7 +41,7 @@
                             <td>
                               <a href="{{url('admin/settings/show/'.$key->id)}}" class="btn btn-sm btn-primary">detail</a>
                               <a href="{{url('admin/settings/edit/'.$key->id)}}" class="btn btn-sm btn-warning">edit</a>
-                              <a href="{{url('admin/settings/destroy/'.$key->id)}}" class="btn btn-sm btn-danger">delete</a>
+                              <a href="javascript:void(0)" onclick="hapus('{{url('admin/settings/destroy/'.$key->id)}}')" class="btn btn-sm btn-danger">delete</a>
                             </td>
                           </tr>
                           @endforeach

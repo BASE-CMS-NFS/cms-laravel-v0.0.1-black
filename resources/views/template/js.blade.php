@@ -32,3 +32,26 @@
             $(".nav-item.menu-items.active").removeClass("active"); 
         });
     </script>
+
+<script>
+    function hapus(url){
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't delete this data",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#696cff',
+            cancelButtonColor: '#ff3e1d',
+            confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                location.href=url; 
+                Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+                )
+            }
+            })
+        }
+</script>

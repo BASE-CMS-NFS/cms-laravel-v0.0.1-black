@@ -172,6 +172,9 @@ class CmsMenusController extends Controller
 
         //delete semua relasi menus
         $delete = Nfs::deleteAllMenusRelasi($id);
+
+        //update semua turunan menu parent id
+        CmsMenus::setNullAllParentIdWhenDelete($id);
         
         if($delete){
             return redirect()->back()->with('message','success delete data')->with('message_type','primary');

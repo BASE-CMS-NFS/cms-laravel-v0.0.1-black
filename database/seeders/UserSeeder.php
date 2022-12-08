@@ -19,8 +19,8 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'cms_role_id' => 1,
-                'name'  =>'nonscrap',
-                'email'=>'superadmin@nonscrap.com',
+                'name'  =>'superadmin',
+                'email'=>'superadmin@nfs.com',
                 'phone'=>'088220148340',
                 'status'=>'active',
                 'password'=>Hash::make('123456')
@@ -28,8 +28,8 @@ class UserSeeder extends Seeder
 
             [
                 'cms_role_id' => 2,
-                'name'  =>'nonscrap',
-                'email'=>'admin@nonscrap.com',
+                'name'  =>'admin',
+                'email'=>'admin@nfs.com',
                 'phone'=>'082238982100',
                 'status'=>'active',
                 'password'=>Hash::make('123456')
