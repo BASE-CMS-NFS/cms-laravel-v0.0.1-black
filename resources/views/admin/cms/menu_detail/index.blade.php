@@ -32,7 +32,7 @@
                         <td>{{$key->function}}</td>
                         <td>
                             <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#edit{{$key->id}}">edit</button>
-                          <a href="{{url('admin/menu_detail/destroy/'.$key->id)}}" class="btn btn-sm btn-danger">delete</a>
+                            <a href="javascript:void(0)" onclick="hapus('{{url('admin/menu_detail/destroy/'.$key->id)}}')" class="btn btn-sm btn-danger">delete</a>
                         </td>
                     </tr>
 

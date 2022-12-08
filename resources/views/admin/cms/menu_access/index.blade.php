@@ -26,7 +26,7 @@
                         <td>{{$key->cms_role_name}}</td>
                         <td>{{$key->cms_menus_name}}</td>
                         <td>
-                          <a href="{{url('admin/menu_access/destroy/'.$key->id)}}" class="btn btn-sm btn-danger">delete</a>
+                          <a href="javascript:void(0)" onclick="hapus('{{url('admin/menu_access/destroy/'.$key->id)}}')" class="btn btn-sm btn-danger">delete</a>
                         </td>
                     </tr>
                     @endforeach
