@@ -148,10 +148,27 @@
     </div>
   </nav>
 
-  @push('js')
+  @push('js')   
       <script>
-          function logout(){
-            document.getElementById("logout").submit();
-          }
-      </script>    
+        function logout(){
+            Swal.fire({
+                title: 'Are you sure logout?',
+                text: "You won't logout",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#696cff',
+                cancelButtonColor: '#ff3e1d',
+                confirmButtonText: 'Yes'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                  document.getElementById("logout").submit();
+                    Swal.fire(
+                    'Logout!',
+                    'Your has been Logout.',
+                    'success'
+                    )
+                }
+                })
+            }
+    </script>
   @endpush
