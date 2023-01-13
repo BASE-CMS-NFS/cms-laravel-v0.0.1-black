@@ -6,7 +6,6 @@
       <div class="col-sm-12 mb-10">
         <a href="{{url('admin/modules/create')}}" class="btn btn-success btn-fw">add data</a>
       </div>
-
         <div class="col-sm-12">
             
                 <div class="card">
@@ -40,12 +39,14 @@
                             <td>{{$key->controller}}</td>
                             <td>{{$key->model}}</td>
                             <td>{{$key->table}}</td>
-                            <td>{{$key->status}}</td>
+                            <td>@php echo Helper::status($key->status); @endphp</td>
                             <td>{{$key->folder_controller}}</td>
                             <td>{{$key->folder_storage}}</td>
                             <td>{{$key->folder_model}}</td>
                             <td>{{$key->cms_settings_name}}</td>
-                            <td><a href="{{url('admin/modules/generate/'.$key->id)}}" class="btn btn-sm btn-success">klik generate</a></td>
+                            <td>
+                              <a href="javascript:void(0)"
+                                onclick="generate('{{url('admin/modules/generate/'.$key->id)}}')" class="btn btn-sm btn-success">klik generate</a></td>
                             <td>
                               <a href="{{url('admin/modules/show/'.$key->id)}}" class="btn btn-sm btn-primary">detail</a>
                               <a href="{{url('admin/modules/edit/'.$key->id)}}" class="btn btn-sm btn-warning">edit</a>
@@ -61,5 +62,30 @@
 
         </div>
     </div>
+
+    @push('js')
+    <script>
+      function generate(url){
+          Swal.fire({
+              title: 'Are you sure?',
+              text: "You won't generate this module",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#696cff',
+              cancelButtonColor: '#ff3e1d',
+              confirmButtonText: 'Yes, generate it!'
+              }).then((result) => {
+              if (result.isConfirmed) {
+                  location.href=url; 
+                  Swal.fire(
+                  'Generate!',
+                  'Your has been generete module ?.',
+                  'success'
+                  )
+              }
+              })
+          }
+  </script>
+    @endpush
 
 @endsection

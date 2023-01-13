@@ -30,6 +30,95 @@ class Nfs {
         return "NonScrap";
     }
 
+     public static function content($name){
+
+        if($name == 'app'){
+            $app = CmsSettings::where('name','app')->first();
+
+            if($app->value){
+                $result = $app->value;
+            }else{
+                $result = 'App';
+            }
+        }
+
+        if($name == 'email'){
+            $email = CmsSettings::where('name','email')->first();
+
+            if($email->value){
+                $result = $email->value;
+            }else{
+                $result = 'demo@gmail.com';
+            }
+        }
+
+        if($name == 'phone'){
+            $phone = CmsSettings::where('name','phone')->first();
+
+            if($phone->value){
+                $result = $phone->value;
+            }else{
+                $result = '0822233344455';
+            }
+        }
+
+        if($name == 'domain'){
+            $domain = CmsSettings::where('name','domain')->first();
+
+            if($domain){
+                $result = $domain->value;
+            }else{
+                $result = 'demo.com';
+            }
+        }
+
+        if($name == 'logo'){
+            $logo = CmsSettings::where('name','logo')->first();
+
+            if($logo->image){
+                $result = url('storage/'.$logo->image);
+            }else{
+                $result = url('custom/default/logo.png');
+            }
+        }
+
+        if($name == 'favicon'){
+            $favicon = CmsSettings::where('name','favicon')->first();
+
+            if($favicon->image){
+                $result = url('storage/'.$favicon->image);
+            }else{
+                $result = url('custom/default/favicon.ico');
+            }
+        }
+
+        if($name == 'profile_image'){
+            $profile_image = CmsSettings::where('name','profile_image')->first();
+
+            if($profile_image->image){
+                $result = url('storage/'.$profile_image->image);
+            }else{
+                $result = url('custom/default/profile.png');
+            }
+        }
+
+        if($name == 'whatsapp_server'){
+            $app = CmsSettings::where('name','whatsapp_server')->first();
+
+            if($app->value){
+                $result = $app->value;
+            }else{
+                $result = '127.0.0.1:3000';
+            }
+        }
+
+
+        return $result;
+
+
+    }
+
+
     //default route admin
     public static function admin_path(){
         
@@ -256,28 +345,28 @@ class Nfs {
         $return = DB::table('cms_menus_detail')->insert([
             [
                 "cms_menus_id"=>$cms_menus_id,
-                "url"         =>$fetch->url.'/{menu_detail}',
+                "url"         =>$fetch->url.'/{menu_id}',
                 "method"      =>'get',
                 "function"    =>'index($menu_id)',
                 "view"        =>'index.blade.php'
             ],
             [
                 "cms_menus_id"=>$cms_menus_id,
-                "url"         =>$fetch->url.'/create/{menu_detail}',
+                "url"         =>$fetch->url.'/create/{menu_id}',
                 "method"      =>'get',
                 "function"    =>'create($menu_id)',
                 "view"        =>'create.blade.php'
             ],
             [
                 "cms_menus_id"=>$cms_menus_id,
-                "url"         =>$fetch->url.'/edit/{menu_detail}/{id}',
+                "url"         =>$fetch->url.'/edit/{menu_id}/{id}',
                 "method"      =>'get',
                 "function"    =>'edit($menu_id,$id)',
                 "view"        =>'edit.blade.php'
             ],
             [
                 "cms_menus_id"=>$cms_menus_id,
-                "url"         =>$fetch->url.'/show/{menu_detail}/{id}',
+                "url"         =>$fetch->url.'/show/{menu_id}/{id}',
                 "method"      =>'get',
                 "function"    =>'show($menu_id,$id)',
                 "view"        =>'show.blade.php'
@@ -298,9 +387,9 @@ class Nfs {
             ],
             [
                 "cms_menus_id"=>$cms_menus_id,
-                "url"         =>$fetch->url.'/destroy/{menu_detail}/{id}',
+                "url"         =>$fetch->url.'/destroy/{menu_id}/{id}',
                 "method"      =>'get',
-                "function"    =>'destroy($menu_detail,$id)',
+                "function"    =>'destroy($menu_id,$id)',
                 "view"        =>''
             ],
         ]);
@@ -486,7 +575,7 @@ class Nfs {
         use App\Models\Cms\CmsRoleAccess;
 
 		class '.$controller.' extends Controller {
-		';
+        ';
 
         $php .="\n".'
             public static function init($menu_id){
@@ -500,6 +589,7 @@ class Nfs {
                 $data["users"]          = User::fetch_one(Session::get("id"));
                 $data["tabel"]          = "'.$table.'";
                 $data["link"]           = $menu->url;
+                $data["menu_id"]        = $cms_menu_id;
                 return $data;
             }
         ';

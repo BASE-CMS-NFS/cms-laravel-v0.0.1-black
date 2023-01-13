@@ -87,15 +87,15 @@ class CmsMenus extends Model
             'type'              => $request->type,
         ]);
 
-        if($request->type == 'full module'){
-            $delete = Nfs::updateAllMenusRelasi($request->id);
+        // if($request->type == 'full module'){
+        //     $delete = Nfs::updateAllMenusRelasi($request->id);
 
-            $update = Nfs::createDeafultValue($request->id);
-        }else{
-            $delete = Nfs::updateAllMenusRelasi($request->id);
+        //     $update = Nfs::createDeafultValue($request->id);
+        // }else{
+        //     $delete = Nfs::updateAllMenusRelasi($request->id);
 
-            $update = Nfs::createDeafultValueOnlyMenu($request->id);
-        }
+        //     $update = Nfs::createDeafultValueOnlyMenu($request->id);
+        // }
 
         return $update;
 

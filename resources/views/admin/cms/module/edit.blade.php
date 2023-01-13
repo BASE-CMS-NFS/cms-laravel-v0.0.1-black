@@ -12,7 +12,7 @@
                   <input type="hidden" name="id" value="{{$row->id}}">
 
                   <p class="card-description"> {{$subtitle}} </p>
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-md-6">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">{{Helper::uc('name')}}</label>
@@ -31,7 +31,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-md-6">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">{{Helper::uc('middleware')}}</label>
@@ -41,7 +41,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-md-6">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">{{Helper::uc('controller')}}</label>
@@ -59,7 +59,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-md-6">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">{{Helper::uc('table')}}</label>
@@ -73,7 +73,7 @@
                         <label class="col-sm-3 col-form-label">{{Helper::uc('status')}}</label>
                         <div class="col-sm-9">
                           <select class="form-control" name="status" required>
-                            <option value="{{$row->is_active}}" selected>{{$row->status}}</option>
+                            <option value="{{$row->status}}" selected>{{$row->status}}</option>
                             <option>active</option>
                             <option>notactive</option>
                           </select>
@@ -82,12 +82,16 @@
                     </div>
                   </div>
 
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-md-6">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">{{Helper::uc('folder controller')}}</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" value="{{$row->folder_controller}}" name="folder_controller" required>
+                          <select class="form-control" name="folder_controller" required>
+                            <option value="{{$row->folder_controller}}" selected>{{$row->folder_controller}}</option>
+                            <option>Microservice</option>
+                            <option>Management</option>
+                          </select>
                         </div>
                       </div>
                     </div>
@@ -95,13 +99,17 @@
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">{{Helper::uc('folder model')}}</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" value="{{$row->folder_model}}" name="folder_model" required>
+                          <select class="form-control" name="folder_model" required>
+                            <option value="{{$row->folder_model}}" selected>{{$row->folder_model}}</option>
+                            <option>Microservice</option>
+                            <option>Management</option>
+                          </select>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-md-6">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">{{Helper::uc('folder storage')}}</label>
@@ -127,10 +135,12 @@
 
                   </div>
 
-                  <div>
-                    <a class="btn btn-success" href="{{url('admin/modules')}}"><i class="mdi mdi-arrow-left-thick"></i>&nbsp;Back</a>
-                    <button type="submit" class="btn btn-primary mr-2"><i class="mdi mdi-content-save"></i>&nbsp;Submit</button>
-                  </div>
+                  <div class="row mt-20">
+                    <div class="col-sm-12">
+                        <a class="btn btn-success" href="{{url('admin/modules')}}">Back</a>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
 
                 </form>
               </div>

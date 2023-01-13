@@ -10,7 +10,7 @@
                 <form class="form-sample" method="POST" action="{{url('admin/modules/store')}}" enctype="multipart/form-data">
                     @csrf
                   <p class="card-description"> {{$subtitle}} </p>
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-md-6">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">{{Helper::uc('name')}}</label>
@@ -29,7 +29,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-md-6">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">{{Helper::uc('middleware')}}</label>
@@ -39,7 +39,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-md-6">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">{{Helper::uc('controller')}}</label>
@@ -57,7 +57,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-md-6">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">{{Helper::uc('table')}}</label>
@@ -79,12 +79,15 @@
                     </div>
                   </div>
 
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-md-6">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">{{Helper::uc('folder controller')}}</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="folder_controller" required>
+                          <select class="form-control" name="folder_controller" id="folder_controller" required>
+                            <option>Microservice</option>
+                            <option>Management</option>
+                          </select>
                         </div>
                       </div>
                     </div>
@@ -92,13 +95,16 @@
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">{{Helper::uc('folder model')}}</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="folder_model" required>
+                          <select class="form-control" name="folder_model" id="folder_model" required>
+                            <option>Microservice</option>
+                            <option>Management</option>
+                          </select>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-md-6">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">{{Helper::uc('folder storage')}}</label>
@@ -124,10 +130,14 @@
 
                   </div>
 
-                  <div>
-                    <a class="btn btn-success" href="{{url('admin/modules')}}"><i class="mdi mdi-arrow-left-thick"></i>&nbsp;Back</a>
-                    <button type="submit" class="btn btn-primary mr-2"><i class="mdi mdi-content-save"></i>&nbsp;Submit</button>
-                  </div>
+                  <hr>
+                
+                <div class="row mt-20">
+                    <div class="col-sm-12">
+                        <a class="btn btn-success" href="{{url('admin/modules')}}">Back</a>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
 
                 </form>
               </div>

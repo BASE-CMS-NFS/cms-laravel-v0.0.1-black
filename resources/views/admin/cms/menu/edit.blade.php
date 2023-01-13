@@ -11,7 +11,7 @@
                     @csrf
                   <p class="card-description"> {{$subtitle}} </p>
                   <input type="hidden" name="id" value="{{$row->id}}">
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-md-6">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">{{Helper::uc('name menu')}}</label>
@@ -30,12 +30,16 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-md-6">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">{{Helper::uc('main folder view')}}</label>
                         <div class="col-sm-9">
-                          <input type="text" name="main_folder" value="{{$row->main_folder}}" class="form-control" required>
+                          <select class="form-control" name="main_folder" required>
+                            <option value="{{$row->main_folder}}" selected>{{$row->main_folder}}</option>
+                            <option>microservice</option>
+                            <option>management</option>
+                          </select>
                         </div>
                       </div>
                     </div>
@@ -48,7 +52,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-md-6">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">{{Helper::uc('sub folder view')}}</label>
@@ -67,7 +71,7 @@
                     </div>
                   </div>
 
-                  <div class="row">
+                  <div class="row mb-3">
 
                     <div class="col-md-6">
                         <div class="form-group row">
@@ -98,7 +102,7 @@
 
                   </div>
 
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-md-6">
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Parent Menu</label>
@@ -122,16 +126,21 @@
                             <option value="{{$row->type}}" selected>{{$row->type}}</option>
                             <option>full module</option>
                             <option>only menu</option>
+                            <option>section</option>
                           </select>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div>
-                    <a class="btn btn-success" href="{{url('admin/menus')}}"><i class="mdi mdi-arrow-left-thick"></i>&nbsp;Back</a>
-                    <button type="submit" class="btn btn-primary mr-2"><i class="mdi mdi-content-save"></i>&nbsp;Submit</button>
-                  </div>
+                  <hr>
+                
+                <div class="row mt-20">
+                    <div class="col-sm-12">
+                        <a class="btn btn-success" href="{{url('admin/menus')}}">Back</a>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
 
                 </form>
               </div>
